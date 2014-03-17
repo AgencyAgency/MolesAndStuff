@@ -8,6 +8,10 @@
 
 #import "AAMole.h"
 
+@interface AAMole ()
+@property (strong, nonatomic) UITapGestureRecognizer *tapGesture;
+@end
+
 @implementation AAMole
 
 - (id)initWithFrame:(CGRect)frame
@@ -15,17 +19,23 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        [self addGestureRecognizer:self.tapGesture];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (UITapGestureRecognizer *)tapGesture
 {
-    // Drawing code
+    if (!_tapGesture) {
+        _tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+    }
+    return _tapGesture;
 }
-*/
+
+- (void)handleTapGesture:(UITapGestureRecognizer *)tapGesture
+{
+    NSLog(@"tap mole!");
+
+}
 
 @end
