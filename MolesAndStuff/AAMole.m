@@ -38,4 +38,11 @@
 
 }
 
+- (void)move
+{
+    CGPoint newLoc = self.center;
+    newLoc.y -= 5.0f;
+    self.center = newLoc;
+}
+
 @end

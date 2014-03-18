@@ -11,6 +11,7 @@
 
 @interface AAViewController ()
 @property (strong, nonatomic) NSMutableArray *moles;
+@property (strong, nonatomic) CADisplayLink *displayLink;
 @end
 
 @implementation AAViewController
@@ -20,6 +21,17 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.moles = [NSMutableArray array];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self startTickerLoop];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self.displayLink invalidate];
+    self.displayLink = nil;
 }
 
 - (void)createMoleAtLocation:(CGPoint)location
@@ -35,6 +47,37 @@
 {
     CGPoint location = [sender locationInView:self.view];
     [self createMoleAtLocation:location];
+}
+
+#pragma mark - Display Link Tick-Tock
+
+- (CADisplayLink *)displayLink{
+    if (!_displayLink) {
+        _displayLink = [CADisplayLink displayLinkWithTarget:self
+                                                   selector:@selector(tick:)];
+        _displayLink.frameInterval = 1.0f/60.0f;
+        [_displayLink addToRunLoop:[NSRunLoop currentRunLoop]
+                           forMode:NSDefaultRunLoopMode];
+        _displayLink.paused = YES;
+    }
+    return _displayLink;
+}
+
+- (void)startTickerLoop
+{
+    self.displayLink.paused = NO;
+}
+
+- (void)stopTickerLoop
+{
+    self.displayLink.paused = YES;
+}
+
+- (void)tick:(CADisplayLink *)sender
+{
+    for (AAMole *mole in self.moles) {
+        [mole move];
+    }
 }
 
 
