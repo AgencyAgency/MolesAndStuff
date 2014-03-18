@@ -34,8 +34,7 @@
 
 - (void)handleTapGesture:(UITapGestureRecognizer *)tapGesture
 {
-    NSLog(@"tap mole!");
-
+    [self removeFromSuperview];
 }
 
 - (void)move
