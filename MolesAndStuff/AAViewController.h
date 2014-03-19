@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AAMoleDelegate.h"
 
-@interface AAViewController : UIViewController
+@interface AAViewController : UIViewController <AAMoleDelegate>
 
 @end

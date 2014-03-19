@@ -56,6 +56,7 @@
 		CF982DCD18D275CA001A3FCE /* MolesAndStuffTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MolesAndStuffTests.m; sourceTree = "<group>"; };
 		CF982DD718D27645001A3FCE /* AAMole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAMole.h; sourceTree = "<group>"; };
 		CF982DD818D27645001A3FCE /* AAMole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAMole.m; sourceTree = "<group>"; };
+		CFB036A018DA5DFC0019DA0F /* AAMoleDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAMoleDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +121,7 @@
 				CF982DB418D275CA001A3FCE /* Main.storyboard */,
 				CF982DD718D27645001A3FCE /* AAMole.h */,
 				CF982DD818D27645001A3FCE /* AAMole.m */,
+				CFB036A018DA5DFC0019DA0F /* AAMoleDelegate.h */,
 				CF982DB718D275CA001A3FCE /* AAViewController.h */,
 				CF982DB818D275CA001A3FCE /* AAViewController.m */,
 				CF982DBA18D275CA001A3FCE /* Images.xcassets */,
@@ -465,6 +467,7 @@
 				CF982DD318D275CA001A3FCE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF982DD418D275CA001A3FCE /* Build configuration list for PBXNativeTarget "MolesAndStuffTests" */ = {
 			isa = XCConfigurationList;
@@ -473,6 +476,7 @@
 				CF982DD618D275CA001A3FCE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -39,6 +39,7 @@
     AAMole *mole = [[AAMole alloc] initWithFrame:CGRectMake(0.0, 0.0, 50.0, 50.0)];
     mole.center = location;
     mole.backgroundColor = [UIColor redColor];
+    mole.delegate = self;
     [self.view addSubview:mole];
     [self.moles addObject:mole];
 }
@@ -79,7 +80,6 @@
         [mole move];
     }
     [self removeDeadMoles];
-    NSLog(@"mole count: %i", [self.moles count]);
 }
 
 - (void)removeDeadMoles
@@ -89,11 +89,18 @@
         if (!CGRectIntersectsRect(self.view.bounds, mole.frame) || !mole.superview) {
             [mole removeFromSuperview];
             [discardedMoles addObject:mole];
+            NSLog(@"Removing mole -- count: %i", [self.moles count]);
         }
     }
     
     [self.moles removeObjectsInArray:discardedMoles];
 }
 
+#pragma mark - Mole delgates
+
+- (void)moleTapped:(AAMole *)mole
+{
+    NSLog(@"MOLE TAPPED FROM DELEGATE!!!");
+}
 
 @end

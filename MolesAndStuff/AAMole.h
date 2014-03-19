@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AAMoleDelegate.h"
 
 @interface AAMole : UIView
+@property (nonatomic, weak) id<AAMoleDelegate> delegate;
 - (void)move;
 @end
